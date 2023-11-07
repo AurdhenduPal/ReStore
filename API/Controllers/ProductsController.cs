@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace API.Controllers
@@ -24,7 +25,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            return await _storeContext.Products.ToList();
+            return await _storeContext.Products.ToListAsync();
         }
 
         [HttpGet("{id}")]
